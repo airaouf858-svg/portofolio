@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mahmoud Abd-Elraouf — AI Engineer, Automation Expert, and Developer building high-performance AI Ads and intelligent systems.">
+  <meta name="keywords" content="AI Engineer, Automation, Prompt Engineering, Flutter, Python, Portfolio">
+  <meta name="author" content="Mahmoud Abd-Elraouf">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mahmoud Abd-Elraouf | AI Engineer Portfolio">
+  <meta property="og:description" content="AI Engineer with 3 years of experience building AI Ads, Automation Systems, and intelligent workflows.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:url" content="https://mahmoudabd-elraouf.dev">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mahmoud Abd-Elraouf | AI Engineer Portfolio">
+  <meta name="twitter:description" content="AI Engineer building high-performance AI Ads and Automated Systems.">
+  <meta name="twitter:image" content="assets/og-image.png">
+
+  <title>Mahmoud Abd-Elraouf | AI Engineer Portfolio</title>
+
+  <link rel="icon" type="image/png" href="assets/pro.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">&lt;MA/&gt;</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill" id="loaderBar"></div>
+      </div>
+      <div class="loader-percent" id="loaderPercent">0%</div>
+      <div class="loader-glow"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Scroll progress"></div>
+
+  <!-- Animated Background -->
+  <div class="bg-canvas" aria-hidden="true">
+    <canvas id="particleCanvas"></canvas>
+    <div class="bg-mesh"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-glow" id="mouseGlow"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="nav-logo magnetic" data-cursor="hover">&lt;MA/&gt;</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-cursor="hover">Home</a></li>
+        <li><a href="#about" class="nav-link" data-cursor="hover">About</a></li>
+        <li><a href="#education" class="nav-link" data-cursor="hover">Education</a></li>
+        <li><a href="#experience" class="nav-link" data-cursor="hover">Experience</a></li>
+        <li><a href="#skills" class="nav-link" data-cursor="hover">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-cursor="hover">Projects</a></li>
+        <li><a href="#testimonials" class="nav-link" data-cursor="hover">Testimonials</a></li>
+        <li><a href="#services" class="nav-link" data-cursor="hover">Services</a></li>
+        <li><a href="#contact" class="nav-link" data-cursor="hover">Contact</a></li>
+      </ul>
+
+      <a href="assets/CV.pdf" class="btn btn-primary btn-sm nav-cv magnetic" download data-cursor="hover">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HOME -->
+    <section class="section hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-greeting reveal fade-up">Hello, I'm</p>
+          <h1 class="hero-name reveal fade-up" data-delay="1">
+            Mahmoud<br><span class="gradient-text">Abd-Elraouf</span>
+          </h1>
+          <p class="hero-subtitle reveal fade-up" data-delay="2">AI Engineer</p>
+          <p class="hero-desc reveal fade-up" data-delay="3">
+            Developer with 3 years of experience building high-performance AI Ads and Automated Systems.
+          </p>
+          <div class="typing-wrap reveal fade-up" data-delay="4">
+            <span class="typing-label">I'm a</span>
+            <span class="typing-text" id="typingText"></span>
+            <span class="typing-cursor">|</span>
+          </div>
+          <div class="hero-buttons reveal fade-up" data-delay="5">
+            <a href="#contact" class="btn btn-primary magnetic" data-cursor="hover">
+              <span>Hire Me</span><i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="assets/CV.pdf" class="btn btn-outline magnetic" download data-cursor="hover">
+              <i class="fas fa-file-pdf"></i><span>Download CV</span>
+            </a>
+          </div>
+          <div class="hero-social reveal fade-up" data-delay="6">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" data-tooltip="Facebook" data-brand="facebook" data-cursor="hover" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://eg.linkedin.com/in/mahmoud-abdelraouf-a98bb737a" target="_blank" rel="noopener noreferrer" class="social-icon" data-tooltip="LinkedIn" data-brand="linkedin" data-cursor="hover" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-wrap reveal fade-left" data-delay="2">
+          <div class="hero-image-glow"></div>
+          <div class="hero-image-ring"></div>
+          <img src="assets/pro.png" alt="Mahmoud Abd-Elraouf — AI Engineer" class="hero-image floating" width="480" height="480" loading="eager">
+        </div>
+      </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Crafting Intelligent <span class="gradient-text">Solutions</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-image-wrap reveal fade-right">
+            <div class="about-image-border"></div>
+            <img src="assets/about.png" alt="Mahmoud Abd-Elraouf speaking at a conference" class="about-image" width="420" height="520" loading="lazy">
+          </div>
+          <div class="about-content reveal fade-left">
+            <p class="about-text">
+              I'm <strong>Mahmoud Abd-Elraouf</strong>, an AI Engineer with more than 2 years of experience building AI Ads, AI Automation Systems, Prompt Engineering solutions, and intelligent business workflows.
+            </p>
+            <div class="counters">
+              <div class="counter-card">
+                <span class="counter" data-target="2">0</span><span class="counter-suffix">+</span>
+                <p>Years Experience</p>
+              </div>
+              <div class="counter-card">
+                <span class="counter" data-target="8">0</span><span class="counter-suffix">+</span>
+                <p>Projects Done</p>
+              </div>
+              <div class="counter-card">
+                <span class="counter-text">Expert</span>
+                <p>AI Engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Education</span>
+          <h2 class="section-title">Academic <span class="gradient-text">Journey</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal fade-up">
+            <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2020 — 2024</span>
+              <h3>Bachelor's Degree in Artificial Intelligence Engineering</h3>
+              <p class="timeline-grade"><i class="fas fa-star"></i> Grade: Good</p>
+              <p>Faculty of Computers and Informatics</p>
+              <p class="timeline-place"><i class="fas fa-university"></i> Zagazig University</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Experience</span>
+          <h2 class="section-title">Professional <span class="gradient-text">Timeline</span></h2>
+        </div>
+        <div class="exp-grid">
+          <article class="exp-card glass-card tilt-card reveal fade-up" data-delay="1">
+            <div class="exp-icon"><i class="fas fa-brain"></i></div>
+            <h3>AI Engineer</h3>
+            <span class="exp-duration"><i class="fas fa-calendar"></i> 2023 — Present</span>
+            <p>Designing and deploying AI-powered solutions for business automation, intelligent workflows, and data-driven decision systems.</p>
+            <div class="exp-tech">
+              <span>Python</span><span>OpenAI API</span><span>LLMs</span><span>n8n</span>
+            </div>
+          </article>
+          <article class="exp-card glass-card tilt-card reveal fade-up" data-delay="2">
+            <div class="exp-icon"><i class="fas fa-bullhorn"></i></div>
+            <h3>AI Ads Developer</h3>
+            <span class="exp-duration"><i class="fas fa-calendar"></i> 2022 — Present</span>
+            <p>Building high-performance AI-driven advertising campaigns with automated targeting, creative optimization, and analytics pipelines.</p>
+            <div class="exp-tech">
+              <span>Meta Ads</span><span>Google Ads</span><span>Automation</span><span>Analytics</span>
+            </div>
+          </article>
+          <article class="exp-card glass-card tilt-card reveal fade-up" data-delay="3">
+            <div class="exp-icon"><i class="fas fa-cogs"></i></div>
+            <h3>Automation Engineer</h3>
+            <span class="exp-duration"><i class="fas fa-calendar"></i> 2022 — 2024</span>
+            <p>Engineering end-to-end automation systems using n8n, Make, and Zapier to streamline business operations and reduce manual work.</p>
+            <div class="exp-tech">
+              <span>n8n</span><span>Make</span><span>Zapier</span><span>REST API</span>
+            </div>
+          </article>
+          <article class="exp-card glass-card tilt-card reveal fade-up" data-delay="4">
+            <div class="exp-icon"><i class="fas fa-comment-dots"></i></div>
+            <h3>Prompt Engineer</h3>
+            <span class="exp-duration"><i class="fas fa-calendar"></i> 2023 — Present</span>
+            <p>Crafting advanced prompt strategies and LLM integrations for chatbots, content generation, and intelligent assistant applications.</p>
+            <div class="exp-tech">
+              <span>GPT-4</span><span>Claude</span><span>Prompt Design</span><span>RAG</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Skills</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category glass-card reveal fade-up" data-delay="1">
+            <h3><i class="fas fa-code"></i> Programming</h3>
+            <div class="skill-item"><div class="skill-info"><span>HTML</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>CSS</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Python</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Flutter</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+          </div>
+          <div class="skill-category glass-card reveal fade-up" data-delay="2">
+            <h3><i class="fas fa-robot"></i> Artificial Intelligence</h3>
+            <div class="skill-item"><div class="skill-info"><span>Prompt Engineering</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>LLMs</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>OpenAI API</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+          </div>
+          <div class="skill-category glass-card reveal fade-up" data-delay="3">
+            <h3><i class="fas fa-bolt"></i> Automation</h3>
+            <div class="skill-item"><div class="skill-info"><span>n8n</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Make</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Zapier</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
+          </div>
+          <div class="skill-category glass-card reveal fade-up" data-delay="4">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <div class="skill-item"><div class="skill-info"><span>Firebase</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>REST API</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Git</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>GitHub</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Projects</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Work</span></h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card tilt-card reveal scale-up" data-delay="1">
+            <div class="project-image-wrap">
+              <img src="assets/project/1.png" alt="Smart Chess project" loading="lazy" width="800" height="500">
+              <div class="project-overlay">
+                <a href="#" class="project-github" aria-label="View on GitHub" data-cursor="hover"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Smart Chess</h3>
+              <p>AI-powered smart chess board using Flutter, Raspberry Pi, and Stockfish.</p>
+              <div class="project-tags"><span>Flutter</span><span>Stockfish</span><span>Raspberry Pi</span></div>
+            </div>
+          </article>
+          <article class="project-card tilt-card reveal scale-up" data-delay="2">
+            <div class="project-image-wrap">
+              <img src="assets/project/2.png" alt="E-Commerce App project" loading="lazy" width="800" height="500">
+              <div class="project-overlay">
+                <a href="#" class="project-github" aria-label="View on GitHub" data-cursor="hover"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>E-Commerce App</h3>
+              <p>Modern e-commerce application with Firebase backend.</p>
+              <div class="project-tags"><span>Flutter</span><span>Firebase</span><span>Dart</span></div>
+            </div>
+          </article>
+          <article class="project-card tilt-card reveal scale-up" data-delay="3">
+            <div class="project-image-wrap">
+              <img src="assets/project/3.png" alt="Movies App project" loading="lazy" width="800" height="500">
+              <div class="project-overlay">
+                <a href="#" class="project-github" aria-label="View on GitHub" data-cursor="hover"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Movies App</h3>
+              <p>Movie discovery application using REST APIs.</p>
+              <div class="project-tags"><span>Flutter</span><span>REST API</span><span>TMDB</span></div>
+            </div>
+          </article>
+          <article class="project-card tilt-card reveal scale-up" data-delay="4">
+            <div class="project-image-wrap">
+              <img src="assets/project/4.png" alt="AI Chat App project" loading="lazy" width="800" height="500">
+              <div class="project-overlay">
+                <a href="#" class="project-github" aria-label="View on GitHub" data-cursor="hover"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>AI Chat App</h3>
+              <p>AI chatbot powered by modern LLM technologies.</p>
+              <div class="project-tags"><span>OpenAI</span><span>LLMs</span><span>Flutter</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+        </div>
+        <div class="testimonial-slider reveal fade-up" id="testimonialSlider">
+          <div class="testimonial-track" id="testimonialTrack">
+            <div class="testimonial-slide glass-card">
+              <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+              <p>"Mahmoud's expertise in AI and automation transformed our workflow. His solutions are innovative and highly effective."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                <div><h4>Ahmed Hassan</h4><span>Flutter Student</span></div>
+              </div>
+            </div>
+            <div class="testimonial-slide glass-card">
+              <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+              <p>"Outstanding work on our AI advertising campaigns. Results exceeded expectations with remarkable ROI improvements."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                <div><h4>Mohamed Ali</h4><span>Client, Saudi Arabia</span></div>
+              </div>
+            </div>
+            <div class="testimonial-slide glass-card">
+              <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+              <p>"A talented engineer who delivers complex automation systems with precision. A true asset to any team."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                <div><h4>Omar Khaled</h4><span>Team Lead, Scorpion</span></div>
+              </div>
+            </div>
+            <div class="testimonial-slide glass-card">
+              <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+              <p>"The training sessions were incredibly insightful. Mahmoud explains AI concepts in a clear and practical way."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                <div><h4>Nour El-Din</h4><span>Training Program Student</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+        </div>
+        <div class="testimonial-bg-image reveal fade-up" aria-hidden="true">
+          <img src="assets/speaker.png" alt="" loading="lazy" width="400" height="500">
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Services</span>
+          <h2 class="section-title">What I <span class="gradient-text">Offer</span></h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card glass-card reveal fade-up" data-delay="1">
+            <div class="service-icon floating-icon"><i class="fas fa-bullhorn"></i></div>
+            <h3>AI Ads</h3>
+            <p>High-performance AI-driven advertising campaigns with automated optimization, targeting, and analytics for maximum ROI.</p>
+          </article>
+          <article class="service-card glass-card reveal fade-up" data-delay="2">
+            <div class="service-icon floating-icon"><i class="fas fa-cogs"></i></div>
+            <h3>Automated Systems</h3>
+            <p>End-to-end business automation using n8n, Make, and Zapier to eliminate repetitive tasks and boost productivity.</p>
+          </article>
+          <article class="service-card glass-card reveal fade-up" data-delay="3">
+            <div class="service-icon floating-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3>AI Education</h3>
+            <p>Comprehensive AI training programs covering prompt engineering, LLM integration, and practical automation workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-header reveal fade-up">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-cards reveal fade-right">
+            <a href="https://wa.me/201125590004" target="_blank" rel="noopener noreferrer" class="contact-card glass-card" data-cursor="hover">
+              <i class="fab fa-whatsapp"></i>
+              <h4>WhatsApp</h4>
+              <span>+20 112 559 0004</span>
+            </a>
+            <a href="https://eg.linkedin.com/in/mahmoud-abdelraouf-a98bb737a" target="_blank" rel="noopener noreferrer" class="contact-card glass-card" data-cursor="hover">
+              <i class="fab fa-linkedin-in"></i>
+              <h4>LinkedIn</h4>
+              <span>mahmoud-abdelraouf</span>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="contact-card glass-card" data-cursor="hover">
+              <i class="fab fa-facebook-f"></i>
+              <h4>Facebook</h4>
+              <span>Mahmoud Abd-Elraouf</span>
+            </a>
+            <div class="contact-card glass-card">
+              <i class="fas fa-envelope"></i>
+              <h4>Email</h4>
+              <span>mahmoud@example.com</span>
+            </div>
+          </div>
+          <form class="contact-form glass-card reveal fade-left" id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" name="name" required autocomplete="name">
+              <label for="name">Name</label>
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" required autocomplete="email">
+              <label for="email">Email</label>
+              <span class="form-error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" name="subject" required>
+              <label for="subject">Subject</label>
+              <span class="form-error" id="subjectError"></span>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <label for="message">Message</label>
+              <span class="form-error" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary magnetic" data-cursor="hover">
+              <span>Send Message</span><i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i> Message sent successfully!
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">&lt;MA/&gt;</a>
+        <p>Building the future with AI &amp; Automation.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <div class="footer-social-icons">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://eg.linkedin.com/in/mahmoud-abdelraouf-a98bb737a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Mahmoud Abd-Elraouf. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
